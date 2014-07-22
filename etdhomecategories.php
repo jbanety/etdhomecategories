@@ -49,6 +49,21 @@ class EtdHomeCategories extends Module {
 
     }
 
+    public function hookActionCategoryAdd() {
+
+        // On vide le cache.
+        $this->_clearCache('etdhomecategories.tpl');
+
+    }
+
+    public function hookActionCategoryDelete() {
+        $this->hookActionCategoryAdd();
+    }
+
+    public function hookActionCategoryUpdate() {
+        $this->hookActionCategoryAdd();
+    }
+
     protected function getHomeCategories() {
 
         $order = Configuration::get('ETD_HOMECATS_ORDER');
