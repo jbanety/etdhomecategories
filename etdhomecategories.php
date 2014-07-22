@@ -89,6 +89,7 @@ class EtdHomeCategories extends Module {
             $order = Tools::getValue('order');
             Configuration::updateValue('ETD_HOMECATS_ORDER', $order);
             $output .= '<div class="conf confirm">' . $this->l('Settings updated') . '</div>';
+            $this->_clearCache('etdhomecategories.tpl');
         }
 
         return $output . $this->displayForm();
